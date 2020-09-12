@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+     <link href="/static/adminpanel/css/logincss.css" rel="stylesheet">
+     <link href="/static/adminpanel/css/all.css" rel="stylesheet">
+    <!-- CSS only -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <form class="form-signin" action="signup2" method="post">
+              {% csrf_token %}
+              <div class="form-label-group">
+
+                <input type="text" id="inputFirstname" name="cand_name" class="form-control" placeholder="Firstname" required autofocus>
+                <label for="inputfirstname">Name</label>
+              </div>
+              <!--<div class="form-label-group">
+               <input type="text" id="inputLastname" name="alastname" class="form-control" placeholder="Lastname" required autofocus>
+                <label for="inputlastname">Lastname</label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="inputUsername" name="ausername" class="form-control" placeholder="Username" required>
+                <label for="inputUsername">Username</label>
+              </div>
+              <div>
+              {% for mis in messages %}
+            <h6 class="invalid" align="center">{{mis}}</h6>
+            {% endfor %}</div>--!>
+              <div class="form-label-group">
+
+                <input type="email" id="inputEmail" name="cand_mail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+              </div>
+              <div>
+              {% for mis in messages %}
+            <h6 class="invalid" align="center">{{mis}}</h6>
+                {% endfor %}</div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="cand_password" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+              <!--<div class="form-label-group">
+                <input type="password" id="inputPassword" name="apassword2" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">ConfirmPassword</label>
+              </div>
+               <div>
+              {% for mis in messages %}
+            <h6 class="invalid" align="center">{{mis}}</h6>
+                {% endfor %}</div>--!>
+
+
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" name="signup2" type="submit">Sign up</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

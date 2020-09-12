@@ -1,0 +1,87 @@
+{% include 'job/header.html' %}
+<section class="ftco-section bg-light">
+<div class="container-fluid">
+
+
+
+           <form action="postjob" method="post">
+               {% csrf_token %}
+                {% for jdetail in details %}
+                <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">Job Title</label>
+                  <input type="text" name="jtitle" value={{jdetail.jtitle}} id="fullname" class="form-control" placeholder="eg. Professional UI/UX Designer">
+                </div>
+              </div>
+
+              <div class="row form-group mb-5">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">Company</label>
+                  <input type="text" name="jcompany" value={{jdetail.jcname}} id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
+                </div>
+              </div>
+
+
+              <div class="row form-group">
+                <div class="col-md-12"><h3>Job Type</h3></div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-1">
+                    <input type="radio" value="Full Time"  id="option-job-type-1" name="job-type"> Full Time
+                  </label>
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-2">
+                    <input type="radio" id="option-job-type-2" value="Part Time" name="job-type"> Part Time
+                  </label>
+                </div>
+
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-3">
+                    <input type="radio" id="option-job-type-3" value="Freelance" name="job-type"> Freelance
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-4">
+                    <input type="radio" id="option-job-type-4" value="Internship" name="job-type"> Internship
+                  </label>
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-4">
+                    <input type="radio" id="option-job-type-4" value="Temporary" name="job-type"> Temporary
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="row form-group mb-5">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">State</label>
+                  <input type="text" name="jstate" value={{jdetail.jstate}} id="fullname" class="form-control" placeholder="Madhya Prodesh">
+                </div>
+              </div>
+
+              <div class="row form-group mb-5">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">District</label>
+                  <input type="text" name="jdistrict" value={{jdetail.jdistrict}} id="fullname" class="form-control" placeholder="Indore">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12"><h3>Job Description</h3></div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <textarea name="jdesc" class="form-control"  id="" cols="30" rows="5">{{jdetail.jtitle}}</textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" name="btn-submit" value="Apply" class="btn btn-primary  py-2 px-5">
+                </div>
+              </div>
+{% endfor %}
+
+            </form>
+
+          </div>
+</section>
+{% include 'job/footer.html' %}
