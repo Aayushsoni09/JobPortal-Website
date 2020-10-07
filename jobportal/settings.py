@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'job',
     'adminpanel',
+    'phone_field',
+    'loggedin',
 ]
 
 MIDDLEWARE = [

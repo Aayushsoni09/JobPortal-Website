@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JobPortal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static 'job/css/open-iconic-bootstrap.min.css'%}">
+    <link rel="stylesheet" href=" {% static 'job/css/animate.css'%}">
+
+    <link rel="stylesheet" href="{% static 'job/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'job/css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="{% static 'job/css/magnific-popup.css'%}">
+
+    <link rel="stylesheet" href="{% static 'job/css/aos.css'%}">
+
+    <link rel="stylesheet" href="{% static 'job/css/ionicons.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'job/css/bootstrap-datepicker.css'%}">
+    <link rel="stylesheet" href="{% static 'job/css/jquery.timepicker.css'%}">
+
+
+    <link rel="stylesheet" href="{% static 'job/css/flaticon.css'%}">
+    <link rel="stylesheet" href="{% static 'job/css/icomoon.css'%}">
+    <link rel="stylesheet" href="{% static 'job/css/style.css'%}">
+  </head>
+ <body>
+
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="loggedin">JobPortal</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="loggedin" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
+              <li class="nav-item"><a href="userdash" class="nav-link">Dashboard</a></li>
+                <!--<li class="nav-item"><input type="submit" class="nav-link" value="Dashboard" ></li>-->
+
+
+                <li class="nav-item"><span class="nav-link">Welcome : {{udata}}</span> </li>
+
+
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    
+    <div class="hero-wrap js-fullheight" style="background-image: url('static/job/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+          	<p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have {% for count in jobsc %}<span>{{count}}</span>{% endfor %} great job offers you deserve!</p>
+
+            <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Job is Waiting</span></h1>
+
+						<div class="ftco-search">
+							<div class="row">
+		            <div class="col-md-12 nav-link-wrap">
+			            <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+			              <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Find a Job</a>
+
+
+			            </div>
+			          </div>
+			          <div class="col-md-12 tab-wrap">
+			            
+			            <div class="tab-content p-4" id="v-pills-tabContent">
+
+			              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+			              	<form action="search" class="search-job" method="get">
+			              		<div class="row">
+			              			<div class="col-md">
+			              				<div class="form-group">
+				              				<div class="form-field">
+				              					<div class="icon"><span class="icon-briefcase"></span></div>
+								                <input type="text" name="title" id="title" class="form-control" placeholder="eg. Garphic. Web Developer">
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+				              					<div class="select-wrap">
+						                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+						                      <select name="type" id="type" class="form-control">
+						                      	<option value="category">Category</option>
+						                      	<option value="fulltime">Full Time</option>
+						                        <option value="parttime">Part Time</option>
+						                        <option value="freelance">Freelance</option>
+						                        <option value="internship">Internship</option>
+						                        <option value="temporary">Temporary</option>
+						                      </select>
+						                    </div>
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+				              					<div class="icon"><span class="icon-map-marker"></span></div>
+								                <input type="text" name="location" id="location" class="form-control" placeholder="Location">
+								              </div>
+							              </div>
+			              			</div>
+			              			<div class="col-md">
+			              				<div class="form-group">
+			              					<div class="form-field">
+								                <input type="submit" name="query" id="query" value="Search" class="form-control btn btn-primary">
+								              </div>
+							              </div>
+			              			</div>
+			              		</div>
+			              	</form>
+			              </div>
+
+
+			            </div>
+			          </div>
+			        </div>
+		        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section services-section bg-light">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-resume"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Search Millions of Jobs</h3>
+
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-collaboration"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Easy To Manage Jobs</h3>
+
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-promotions"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Top Careers</h3>
+
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-employee"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Search Expert Candidates</h3>
+
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+		<section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Recently Added Jobs</span>
+            <h2 class="mb-4"><span>Recent</span> Jobs</h2>
+          </div>
+        </div>
+                <form action="jobpage" method="post">
+                 {% csrf_token %}
+				<div class="row">
+                        {% for job in jobs %}
+					<div class="col-md-12 ftco-animate">
+
+            <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+
+              <div class="mb-4 mb-md-0 mr-5">
+                <div class="job-post-item-header d-flex align-items-center">
+                  <h2 class="mr-3 text-black h3">{{job.jtitle}}</h2>
+                  <div class="badge-wrap">
+                   <span class="bg-primary text-white badge py-2 px-3">{{job.jobtype}}</span>
+                  </div>
+                </div>
+                <div class="job-post-item-body d-block d-md-flex">
+                  <div class="mr-3"><span class="icon-layers"></span> <a href="#">{{job.jcname}}</a></div>
+                  <div><span class="icon-my_location"></span> <span>{{job.jstate}},{{job.jdistrict}}</span></div>
+                </div>
+              </div>
+
+              <div class="ml-auto d-flex">
+                  <a href="jobpage?z={{job.id}}"  name="apply" id="apply"  class="btn btn-primary py-2 mr-1">Apply Job</a>
+                <a href="#" class="btn btn-secondary rounded-circle btn-favorite d-flex align-items-center icon">
+                	<span class="icon-heart"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          </form>          <!-- end -->
+                    {% endfor %}
+
+
+				</div>
+				<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+			</div>
+		</section>
+   
+
+{% include 'job/footer.html' %}

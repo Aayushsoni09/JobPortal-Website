@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('job.urls')),
     path('adminpanel/',include('adminpanel.urls')),
+    path('loggedin/',include('loggedin.urls'))
 
 
 ]

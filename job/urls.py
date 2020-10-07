@@ -14,5 +14,8 @@ urlpatterns = [
     path('login2',views.login,name='login2'),
     path('signup2',views.signup,name='signup2'),
     path('userdash',views.userdash,name='userdash'),
-    path('jobpage',views.jobpage,name='jobpage')
+    path('jobpage',views.jobpage,name='jobpage'),
+    path('jobapply',views.jobapply,name='jobapply'),
+    path('loggedin',views.loggedin,name='loggedin')
+
 ]

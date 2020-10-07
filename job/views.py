@@ -1,24 +1,54 @@
 
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
-from .models import Candidate,Job
+from .models import Candidate,Job,Cand_details
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
 
-def userdash(request):
-    cand=Candidate.objects.all()
-    return render(request,'job/userdash.html',{'res':cand})
-def index(request):
-
+def loggedin(request):
     p = Job.objects.all()
-    return render(request, 'job/index.html', {'jobs': p})
+    q = Job.objects.all().count()
+    q = str(q)
+    if request.session.has_key('uid'):
+        s=Candidate.objects.all()
+        return render(request,'job/loggedin.html',{'res':s,'udata':request.session['uid'],'jobs': p,'jobsc':q})
+    else:
+        return redirect('login')
+
+def userdash(request):
+    if request.session.has_key('uid'):
+        jcname = request.POST['comname']
+        jtitle = request.POST['jobtitle']
+        jobtype = request.POST['jobtype']
+        jdate = request.POST['apply_date']
+        m=ApplyJob.objects.filter(comname=jcname,jobtitle=jtitle,jobtype=jobtype,apply_date=jdate)
+        return render(request, 'job/userdash.html', {'dashdetail': m})
+    else:
+        return HttpResponse("login to continue")
+def index(request):
+    p = Job.objects.all()
+    q=Job.objects.all().count()
+    q=str(q)
+    return render(request, 'job/index.html', {'jobs': p,'jobsc':q})
 
 def about(request):
-    return render(request,'job/about.html')
+    if request.session.has_key('uid'):
+        s = Candidate.objects.all()
+        return render(request, 'job/about2.html', {'res': s, 'udata': request.session['uid']})
+    else:
+        return render(request,'job/about.html')
 def blog(request):
-    return render(request,'job/blog.html')
+    if request.session.has_key('uid'):
+        s = Candidate.objects.all()
+        return render(request, 'job/blog2.html', {'res': s, 'udata': request.session['uid']})
+    else:
+        return render(request, 'job/blog.html')
 def contact(request):
-    return render(request,'job/contact.html')
+    if request.session.has_key('uid'):
+        s = Candidate.objects.all()
+        return render(request, 'job/contact2.html', {'res': s, 'udata': request.session['uid']})
+    else:
+        return render(request,'job/contact.html')
 
 def search(request):
 
@@ -43,8 +73,8 @@ def login(request):
                     response=HttpResponse('cookie')
                     response.set_cookie('cid3', request.POST['cand_mail'])
                     response.set_cookie('cid4', request.POST['cand_password'])
-                    return HttpResponseRedirect('userdash')
-                return redirect('userdash')
+                    return HttpResponseRedirect('loggedin')
+                return redirect('loggedin')
 
             else:
                 messages.info(request, 'invalid username or password')
@@ -82,20 +112,17 @@ def signup(request):
     else:
 
         return render(request,'job/adminsignup2.html')
-
 def jobpage(request):
-    if 'apply' in request.POST:
-        jtitle = request.POST.get('jtitle','hello')
-        jstate = request.POST.get('jstate', 'hello')
-        jdistrict = request.POST.get('jdistrict', 'hello')
-        jobtype = request.POST.get('jobtype', 'hello')
-        jcname = request.POST.get('jcname', 'hello')
-        jdesc = request.POST.get('jdesc', 'hello')
-
-
-        a=Job.objects.all()
-
-
-        return render(request,'job/viewjobpage.html',{'details':a})
+    if request.method =='POST':
+        return render(request,'job/jobapply.html')
     else:
-         return HttpResponse('invalid')
+        s = Job.objects.get(pk=request.GET['z'])
+        return render(request,'job/viewjobpage.html',{'details':s})
+
+def jobapply(request):
+    if request.method == 'POST':
+        q=Cand_details(firstname=request.POST['firstname'],lastname = request.POST['lastname'],email = request.POST['email'],contact = request.POST['contact'],gender = request.POST['gender'],age = request.POST['age'],state = request.POST['state'],district = request.POST['district'],skills = request.POST['skills'],experience = request.POST['experience'],qualification = request.POST['qualification'],pincode = request.POST['pincode'],passyear = request.POST['passyear'],cgpa = request.POST['cgpa'],extraskills = request.POST['extraskills'],collegename = request.POST['collegename'],course = request.POST['course'],branch = request.POST['branch'])
+        q.save()
+        return redirect("userdash")
+    else:
+        return HttpResponse("invalid")

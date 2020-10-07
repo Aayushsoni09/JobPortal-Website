@@ -1,15 +1,11 @@
 from django.db import models
-
-class Candidate(models.Model):
-    cand_name = models.CharField(max_length=50)
-    cand_mail = models.EmailField(max_length=254)
-    cand_password = models.CharField(max_length=50)
+from phone_field import PhoneField
 
 class Cand_details(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     email = models.EmailField(max_length=250)
-    contact = models.IntegerField()
+    contact = PhoneField(blank=True)
     gender = models.CharField(max_length=10)
     age = models.IntegerField()
     state = models.CharField(max_length=60)
@@ -19,7 +15,6 @@ class Cand_details(models.Model):
     profile_heading = models.CharField(max_length=60)
     qualification = models.CharField(max_length=60)
     image = models.ImageField()
-    regdate = models.DateTimeField()
     pincode = models.IntegerField()
     passyear = models.IntegerField()
     cgpa = models.IntegerField()
@@ -32,14 +27,14 @@ class Company(models.Model):
     cname = models.CharField(max_length=100)
     cmail = models.EmailField(max_length=250)
     cpassword = models.CharField(max_length=50)
-    cregdate = models.DateTimeField()
+    cregdate = models.DateTimeField(auto_now=True)
     cwebsite = models.URLField(max_length=200)
 
 class Job(models.Model):
     jtitle = models.CharField(max_length=100)
     jskills = models.CharField(max_length=500)
     jdesc = models.CharField(max_length=1000)
-    jdate = models.DateTimeField(null=True)
+    jdate = models.DateTimeField(null=True,auto_now=True)
     jstate = models.CharField(max_length=40)
     jdistrict = models.CharField(max_length=60)
     jcname = models.CharField(max_length=100,default="")
@@ -49,5 +44,16 @@ class Job(models.Model):
     maxage = models.IntegerField(default=40)
     no_of_openings = models.IntegerField(default=1)
 
+class Candidate(models.Model):
+    cand_name = models.CharField(max_length=50)
+    cand_mail = models.EmailField(max_length=254)
+    cand_password = models.CharField(max_length=50)
 
+
+class ApplyJob(models.Model):
+
+     jobtitle=models.CharField(max_length=50)
+     jobtype=models.CharField(max_length=50)
+     apply_date= models.DateTimeField(auto_now=True)
+     comname=models.CharField(max_length=100)
 
