@@ -51,9 +51,5 @@ class Candidate(models.Model):
 
 
 class ApplyJob(models.Model):
-
-     jobtitle=models.CharField(max_length=50)
-     jobtype=models.CharField(max_length=50)
-     apply_date= models.DateTimeField(auto_now=True)
-     comname=models.CharField(max_length=100)
-
+    jobs = models.ForeignKey(Job,on_delete=models.CASCADE,null=True)
+    userid= models.ForeignKey(Candidate,on_delete=models.CASCADE,null=True)

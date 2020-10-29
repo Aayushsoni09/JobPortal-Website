@@ -1,4 +1,61 @@
-{% include 'job/header.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JobPortal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static 'loggedin/css/open-iconic-bootstrap.min.css'%}">
+    <link rel="stylesheet" href=" {% static 'loggedin/css/animate.css'%}">
+
+    <link rel="stylesheet" href="{% static 'loggedin/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'loggedin/css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="{% static 'loggedin/css/magnific-popup.css'%}">
+
+    <link rel="stylesheet" href="{% static 'loggedin/css/aos.css'%}">
+
+    <link rel="stylesheet" href="{% static 'loggedin/css/ionicons.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'loggedin/css/bootstrap-datepicker.css'%}">
+    <link rel="stylesheet" href="{% static 'loggedin/css/jquery.timepicker.css'%}">
+
+
+    <link rel="stylesheet" href="{% static 'loggedin/css/flaticon.css'%}">
+    <link rel="stylesheet" href="{% static 'loggedin/css/icomoon.css'%}">
+    <link rel="stylesheet" href="{% static 'loggedin/css/style.css'%}">
+  </head>
+ <body>
+
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="">JobPortal</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
+              <li class="nav-item"><a href="userdash" class="nav-link">Dashboard</a></li>
+                <!--<li class="nav-item"><input type="submit" class="nav-link" value="Dashboard" ></li>-->
+
+
+                <li class="nav-item"><span class="nav-link">Welcome : {{udata}}</span> </li>
+                <li class="nav-item"><a href="logout" class="btn btn-block btn-danger text-white" >Logout</a></li>
+
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
 <section class="ftco-section bg-light">
 <div class="container-fluid">
 
@@ -9,110 +66,110 @@
                 <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >First Name</label>
-                  <input type="text" name="firstname"   class="form-control" placeholder="First Name" >
+                  <input type="text" name="firstname"   class="form-control" placeholder="First Name" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Last Name</label>
-                  <input type="text" name="lastname"   class="form-control" placeholder="Last Name" >
+                  <input type="text" name="lastname"   class="form-control" placeholder="Last Name" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Email</label>
-                  <input type="email" name="email"   class="form-control" placeholder="Email" >
+                  <input type="email" name="email"   class="form-control" placeholder="Email" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Contact</label>
-                  <input type="number" name="contact"   class="form-control" placeholder="Mobile Number" >
+                  <input type="number" name="contact"   class="form-control" placeholder="Mobile Number" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >College/University Name</label>
-                  <input type="text" name="collegename" class="form-control" placeholder="College/University Name" >
+                  <input type="text" name="collegename" class="form-control" placeholder="College/University Name" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Course</label>
-                  <input type="text" name="course"   class="form-control" placeholder="course" >
+                  <input type="text" name="course"   class="form-control" placeholder="course" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Branch</label>
-                  <input type="text" name="branch"   class="form-control" placeholder="Branch" >
+                  <input type="text" name="branch"   class="form-control" placeholder="Branch" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Passing Year</label>
-                  <input type="number" name="passyear"   class="form-control" placeholder="Passing Year" >
+                  <input type="number" name="passyear"   class="form-control" placeholder="Passing Year" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >CGPA</label>
-                  <input type="number" name="cgpa"   class="form-control" placeholder="CGPA" >
+                  <input type="number" name="cgpa"   class="form-control" placeholder="CGPA" required >
                 </div>
               </div>
 
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Gender</label>
-                  <input type="text" name="gender"   class="form-control" placeholder="Gender" >
+                  <input type="text" name="gender"   class="form-control" placeholder="Gender" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Age</label>
-                  <input type="number" name="age"   class="form-control" placeholder="Age " >
+                  <input type="number" name="age"   class="form-control" placeholder="Age" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >State</label>
-                  <input type="text" name="state"   class="form-control" placeholder="State" >
+                  <input type="text" name="state"   class="form-control" placeholder="State" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >District</label>
-                  <input type="text" name="district"   class="form-control" placeholder="District" >
+                  <input type="text" name="district"   class="form-control" placeholder="District" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Pincode</label>
-                  <input type="number" name="pincode"   class="form-control" placeholder="Pincode" >
+                  <input type="number" name="pincode"   class="form-control" placeholder="Pincode" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Skills</label>
-                  <input type="textarea" name="skills"   class="form-control" placeholder="Write Your Skills Here..." >
+                  <input type="textarea" name="skills"   class="form-control" placeholder="Write Your Skills Here..." required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold">Experience</label>
-                  <input type="number" name="experience"   class="form-control" placeholder="Experience" >
+                  <input type="number" name="experience"   class="form-control" placeholder="Experience" required >
                 </div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Qualification</label>
-                  <input type="text" name="qualification"   class="form-control" placeholder="Qualification">
+                  <input type="text" name="qualification"   class="form-control" placeholder="Qualification" required >
                 </div>
               </div>
                 <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" >Extra Skills</label>
-                  <input type="textarea" name="extraskills"   class="form-control" placeholder="Write Your skills here..." >
+                  <input type="textarea" name="extraskills"   class="form-control" placeholder="Write Your skills here..." required >
                 </div>
               </div>
 
