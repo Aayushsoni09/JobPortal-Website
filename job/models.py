@@ -1,9 +1,15 @@
 from django.db import models
 from phone_field import PhoneField
 
+
+class Candidate(models.Model):
+    cand_name = models.CharField(max_length=50)
+    cand_mail = models.EmailField(max_length=254)
+    cand_password = models.CharField(max_length=50)
+
 class Cand_details(models.Model):
-    firstname = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
+    userid= models.ForeignKey(Candidate,on_delete=models.CASCADE,null=True)
+    fullname = models.CharField(max_length=50)
     email = models.EmailField(max_length=250)
     contact = PhoneField(blank=True)
     gender = models.CharField(max_length=10)
@@ -31,6 +37,7 @@ class Company(models.Model):
     cwebsite = models.URLField(max_length=200)
 
 class Job(models.Model):
+
     jtitle = models.CharField(max_length=100)
     jskills = models.CharField(max_length=500)
     jdesc = models.CharField(max_length=1000)
@@ -44,10 +51,6 @@ class Job(models.Model):
     maxage = models.IntegerField(default=40)
     no_of_openings = models.IntegerField(default=1)
 
-class Candidate(models.Model):
-    cand_name = models.CharField(max_length=50)
-    cand_mail = models.EmailField(max_length=254)
-    cand_password = models.CharField(max_length=50)
 
 
 class ApplyJob(models.Model):

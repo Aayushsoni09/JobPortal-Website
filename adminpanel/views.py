@@ -70,8 +70,8 @@ def login(request):
                     response=HttpResponse('cookie')
                     response.set_cookie('cid' , request.POST['ausername'])
                     response.set_cookie('cid2', request.POST['apassword'])
-                    return HttpResponseRedirect('index')
-                return redirect('index')
+                    return HttpResponseRedirect('admin_index')
+                return redirect('admin_index')
 
             else:
                 messages.info(request, 'invalid username or password')
@@ -103,11 +103,11 @@ def update(request):
     s.cand_mail=request.POST['cand_mail']
     s.cand_password=request.POST['cand_password']
     s.save()
-    return redirect('index')
+    return redirect('admin_index')
 def delete(request):
     s = Candidate.objects.get(pk=request.GET['q'])
     s.delete()
-    return redirect('index')
+    return redirect('admin_index')
 def logout(request):
     del request.session['uid']
     return redirect('login')

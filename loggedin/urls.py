@@ -8,8 +8,12 @@ urlpatterns = [
     path('search',views.search,name='search'),
     path('userdash',views.userdash,name='userdash'),
     path('jobpage',views.jobpage,name='jobpage'),
-    path('jobapply/<str:pk_apply>',views.jobapply,name='jobapply'),
-    path('logout',views.logout,name='logout')
+    path('jobapply',views.jobapply,name='jobapply'),
+    path('logout',views.logout,name='logout'),
+    path('deletejob2', views.deletejob2, name='deletejob2'),
+
+
+
 
 
 
